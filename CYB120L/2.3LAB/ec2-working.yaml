@@ -1,3 +1,6 @@
+# Description of what this change includes: Added Block Device Mappings
+# Revision number: 3
+# Date: 02-24-2026
 AWSTemplateFormatVersion: "2010-09-09"
 Description: Amazon Elastic Compute Cloud (EC2) Template
 Parameters:
@@ -14,3 +17,9 @@ Resources:
       NetworkInterfaces:
         - AssociatePublicIpAddress: true
         - DeviceIndex: "0"
+      BlockDeviceMappings:
+        - DeviceName: /dev/sdm
+        - Ebs:
+            VolumeType: gp2
+            DeleteOnTermination: false
+            VolumeSize: 20
